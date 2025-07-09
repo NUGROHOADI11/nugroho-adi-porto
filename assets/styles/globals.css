@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #0070f3;
+  --secondary: #ff4081;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+@keyframes tabProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.animate-tab-progress {
+  animation: tabProgress 4s linear forwards;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blinking-cursor {
+  animation: blink 1s step-start infinite;
+}
