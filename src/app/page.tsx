@@ -1,19 +1,23 @@
 "use client";
 
-import gsap from "gsap";
 import { useState, useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import dynamic from "next/dynamic";
 import { usePageAnimations } from "../hooks/usePageAnimation";
 import Preloader from "@/components/layout/Preloader";
+import { useHandleScroll } from "@/components/utils/HandleScroll";
 
-const HeroSection = dynamic(() => import("@/section/main/Hero").then((mod) => mod.HeroSection));
-const ProfileSection = dynamic(() => import("@/section/main/Profile").then((mod) => mod.ProfileSection));
-const ExperienceSection = dynamic(() => import("@/section/main/Experience").then((mod) => mod.ExperienceSection));
-const LastSection = dynamic(() => import("@/section/main/Last").then((mod) => mod.LastSection));
-
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+const HeroSection = dynamic(() =>
+  import("@/section/main/Hero").then((mod) => mod.HeroSection)
+);
+const ProfileSection = dynamic(() =>
+  import("@/section/main/Profile").then((mod) => mod.ProfileSection)
+);
+const ExperienceSection = dynamic(() =>
+  import("@/section/main/Experience").then((mod) => mod.ExperienceSection)
+);
+const LastSection = dynamic(() =>
+  import("@/components/ui/Last").then((mod) => mod.LastSection)
+);
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,20 +29,8 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
+  const handleScroll = useHandleScroll();
   if (!isMounted) return null;
-
-  const handleScroll = (sectionId: string) => {
-    const nextSection = document.getElementById(sectionId);
-    if (nextSection) {
-      gsap.to(window, {
-        duration: 1.8,
-        scrollTo: { y: nextSection, offsetY: 0 },
-        ease: "power2.inOut",
-        onUpdate: () => ScrollTrigger.update(),
-        onComplete: () => ScrollTrigger.refresh(),
-      });
-    }
-  };
 
   return (
     <main>

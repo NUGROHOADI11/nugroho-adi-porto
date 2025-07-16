@@ -35,6 +35,12 @@ const sizeStyles = {
     underline: "h-[8px]",
     bottom: "bottom-6",
   },
+  xxxl: {
+    text: "text-9xl",
+    padding: " py-6",
+    underline: "h-[13px]",
+    bottom: "bottom-7",
+  },
 };
 
 interface CustomLinkProps {

@@ -1,13 +1,15 @@
 import React from "react";
 import { SECTION_IDS, ANIMATION_CLASSES } from "../../lib/constant";
-import CustomLink from "../../components/ui/CustomLink";
+import CustomLink from "./CustomLink";
 
 interface FooterSectionProps {
   onScrollClick: (id: string) => void;
+  idToScroll?: string;
 }
 
 export const LastSection: React.FC<FooterSectionProps> = ({
   onScrollClick,
+  idToScroll = SECTION_IDS.HERO,
 }) => {
   return (
     <section
@@ -18,10 +20,10 @@ export const LastSection: React.FC<FooterSectionProps> = ({
         <CustomLink
           href={`#${SECTION_IDS.HERO}`}
           label={"Back to Top"}
-          size="xxl"
+          size="xxxl"
           onClick={(e) => {
             e.preventDefault();
-            onScrollClick(SECTION_IDS.HERO);
+            onScrollClick(idToScroll);
           }}
         />
       </div>
