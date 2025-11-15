@@ -18,11 +18,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollClick }) => {
   return (
     <section
       id={SECTION_IDS.HERO}
-      className="relative h-screen flex flex-col py-4 md:py-8 "
+      className="relative h-screen flex flex-col py-4 md:py-8 px-6 md:px-12 lg:px-20 xl:px-32 pt-24 md:pt-0"
     >
       <div className="flex-grow flex flex-col ">
         <h1
-          className={`text-6xl sm:text-7xl md:text-9xl tracking-tight xl:text-[8.3rem] 2xl:text-[12rem] font-medium leading-none ${ANIMATION_CLASSES.HERO_TEXT}`}
+          className={`text-6xl sm:text-7xl md:text-8xl tracking-tight xl:text-[8.3rem] 2xl:text-[12rem] font-medium leading-none ${ANIMATION_CLASSES.HERO_TEXT}`}
         >
           A canvas for tomorrow&apos;s chapters.
         </h1>
@@ -30,13 +30,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollClick }) => {
           <span className="mr-2">Nugroho Adi - </span>
           <TypeWriter />
         </h2>
-        <p className="text-sm md:text-base mt-4 opacity-75 max-w-xl md:max-w-2xl hero-text-once">
+        <p className="text-sm md:text-base mt-4 opacity-75 max-w-sm md:max-w-md xl:max-w-xl hero-text-once">
           I build systems that feel simple, perform reliably, and scale with
           clarity. As a developer, I believe that the best technology
           disappears, leaving only the experience behind.
         </p>
 
-        <div className=" flex justify-end mt-8 overflow-hidden pr-4 md:pr-8">
+        <div className="absolute bottom-[12vh] right-5 overflow-hidden">
           <div key={activeTabIndex} className="text-right">
             <p data-key="tab-content" className="text-lg font-medium">
               {TABS_DATA[activeTabIndex].date}
@@ -54,7 +54,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onScrollClick }) => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-down-btn">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 scroll-down-btn">
         <button
           onClick={() => onScrollClick(SECTION_IDS.PROFILE)}
           aria-label="Scroll to next section"

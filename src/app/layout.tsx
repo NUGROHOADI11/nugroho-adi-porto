@@ -42,7 +42,7 @@ export default function RootLayout({
 
             <Sidebar />
 
-            <div className="relative ml-80 ">
+            <div className="relative xl:ml-64 ">
               <main className="flex-grow">{children}</main>
             </div>
           </Providers>
